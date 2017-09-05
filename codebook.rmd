@@ -1,0 +1,71 @@
+---
+title: "Codebook.rmd"
+author: "Dario Oviedo Rueda"
+date: "September 4, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data Information
+
+This information came from:
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+
+## Data Set Information
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
+
+Check the README.txt file for further details about this dataset. 
+
+A video of the experiment including an example of the 6 recorded activities with one of the participants can be seen in the following link: [Web Link]
+
+An updated version of this dataset can be found at [Web Link]. It includes labels of postural transitions between activities and also the full raw inertial signals instead of the ones pre-processed into windows.
+
+
+
+
+## Library and Variables used in Run_analisys.r
+library('RCurl')
+
+wd <- getwd()
+
+udir <- 'UCI HAR Dataset'
+
+fs <- 'UCI-HAR.zip'
+
+
+
+
+## Important information
+These are the steps to understand how Run_analisys.R works:
+1.- The script will try to open the directory UCI HAR Dataset.
+    If the directory doesn't exist, it will create it and will
+    download the requeried files.
+2.- The script will generate two files, Mean.csv and 
+    tidyData.csv
+
+
+
+
+## Mean.csv Table
+This is the table that you can find in Mean.csv.
+```{r}
+knitr::kable(read.csv('Mean.csv', header = TRUE))
+```
+
+
+
+## TidyData.csv
+
+These are the column names used in tidyData.csv
+
+```{r echo=FALSE}
+knitr::kable(colnames(nombres <- read.csv('UCI HAR Dataset/tidyData.csv', header = TRUE)))
+```
+
+I left the comands used to get the variable names for Markdown in case that somebody need it.
