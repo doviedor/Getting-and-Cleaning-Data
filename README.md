@@ -2,8 +2,11 @@
 
 ---
 title: "Readme.md"
+
 author: "Dario Oviedo Rueda"
+
 date: "September 5, 2017"
+
 output: html_document
 ---
 
